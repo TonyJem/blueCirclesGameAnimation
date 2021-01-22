@@ -3,21 +3,9 @@ import UIKit
 class CircleView: UIView {
     
     @IBOutlet private weak var xibCircleBody: UIView!
-    @IBOutlet private weak var circleLabel: UILabel!
     
     private var workingView: UIView!
     private var xibName: String = "CircleView"
-    
-    private var curentValue: Int {
-        get {
-            guard let curentValue = Int(circleLabel.text!) else { return 0 }
-            return curentValue
-        }
-        set(curentValue) {
-            circleLabel.text = String(curentValue)
-            circleLabel.font = UIFont.systemFont(ofSize: radius)
-        }
-    }
     
     private var radius: CGFloat = 50 {
         didSet{
@@ -74,14 +62,8 @@ class CircleView: UIView {
         let commonArea = otherCircle.area + area
         let newRadius = (commonArea/CGFloat.pi).squareRoot()
         otherCircle.isHidden = true
-        addValue(from: otherCircle)
         setRadius(to: newRadius)
         setBackGroundColor(with: .blue)
-    }
-    
-    private func addValue(from otherCircle: CircleView) {
-        let newValue = curentValue + otherCircle.curentValue
-        curentValue = newValue
     }
     
     private func setRadius(to newRadius: CGFloat) {

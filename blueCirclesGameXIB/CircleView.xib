@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CircleView" customModule="blueCirclesGameXIB" customModuleProvider="target">
             <connections>
-                <outlet property="circleLabel" destination="N6U-tK-Dmo" id="e1S-ts-nE6"/>
                 <outlet property="xibCircleBody" destination="Xuf-aM-Q1g" id="hMe-xB-tOQ"/>
             </connections>
         </placeholder>
@@ -18,20 +17,8 @@
         <view alpha="0.80000000000000004" contentMode="scaleToFill" id="Xuf-aM-Q1g">
             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6U-tK-Dmo">
-                    <rect key="frame" x="38.5" y="20" width="23" height="60"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
             <viewLayoutGuide key="safeArea" id="Kvh-Hs-fCH"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
-            <constraints>
-                <constraint firstItem="N6U-tK-Dmo" firstAttribute="centerX" secondItem="Xuf-aM-Q1g" secondAttribute="centerX" id="8aM-UJ-Qnh"/>
-                <constraint firstItem="N6U-tK-Dmo" firstAttribute="centerY" secondItem="Xuf-aM-Q1g" secondAttribute="centerY" id="xUp-Ee-1h1"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-365" y="-46"/>
         </view>
