@@ -6,18 +6,20 @@ class CircleView: UIView {
     
     private var workingView: UIView!
     private var xibName: String = "CircleView"
-    
-    private var radius: CGFloat = 50 {
-        didSet{
-            self.frame.size.width = 2 * radius
-            self.frame.size.height = 2 * radius
-            self.layer.zPosition += 5
-            xibCircleBody.layer.cornerRadius = radius
+    private var diameter: CGFloat = 100 {
+        didSet {
+            self.frame.size.width = diameter
+            self.frame.size.height = diameter
+            xibCircleBody.layer.cornerRadius = diameter / 2
         }
     }
     
+    private var radius: CGFloat {
+        return diameter / 2
+    }
+    
     private var area: CGFloat {
-        return pow(radius, 2) * CGFloat.pi
+        return pow(diameter, 2) * CGFloat.pi / 4
     }
     
     private var absorbDistance: CGFloat {
@@ -38,7 +40,7 @@ class CircleView: UIView {
         let bundle = Bundle(for: type(of: self))
         let xib = UINib(nibName: xibName, bundle: bundle)
         let view = xib.instantiate(withOwner: self, options: nil).first as! UIView
-        view.layer.cornerRadius = view.frame.size.width / 2
+        view.layer.cornerRadius = diameter / 2
         return view
     }
     
@@ -60,14 +62,16 @@ class CircleView: UIView {
     
     func absorb(_ otherCircle: CircleView) {
         let commonArea = otherCircle.area + area
-        let newRadius = (commonArea/CGFloat.pi).squareRoot()
+        
+        
+        let newDiameter = (commonArea/CGFloat.pi).squareRoot() * 2
         otherCircle.isHidden = true
-        setRadius(to: newRadius)
+        setDiameter(to: newDiameter)
         setBackGroundColor(with: .blue)
     }
     
-    private func setRadius(to newRadius: CGFloat) {
-        radius = newRadius
+    private func setDiameter(to newDiameter: CGFloat) {
+        diameter = newDiameter
     }
     
     private func setBackGroundColor(with newColor: UIColor) {
