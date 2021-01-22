@@ -62,18 +62,12 @@ class CircleView: UIView {
     
     func absorb(_ otherCircle: CircleView) {
         let commonArea = otherCircle.area + area
-        
-        
         let newDiameter = (commonArea/CGFloat.pi).squareRoot() * 2
         otherCircle.isHidden = true
-        setDiameter(to: newDiameter)
+        diameter = newDiameter
         setBackGroundColor(with: .blue)
     }
-    
-    private func setDiameter(to newDiameter: CGFloat) {
-        diameter = newDiameter
-    }
-    
+
     private func setBackGroundColor(with newColor: UIColor) {
         xibCircleBody.backgroundColor = newColor
     }
