@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="blueCirclesGameXIB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKR-Pd-bse" customClass="CircleView" customModule="blueCirclesGameXIB" customModuleProvider="target">
+                                <rect key="frame" x="65" y="104" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="i9f-lh-aE7" appends="YES" id="YKT-u1-cHF"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZl-eN-kCX" customClass="CircleView" customModule="blueCirclesGameXIB" customModuleProvider="target">
+                                <rect key="frame" x="225" y="104" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0vZ-kx-YFa" appends="YES" id="uIQ-iX-ThE"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Hb-VA-9sJ" customClass="CircleView" customModule="blueCirclesGameXIB" customModuleProvider="target">
+                                <rect key="frame" x="65" y="267" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Qmx-4D-atp" appends="YES" id="uGZ-hZ-n7J"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GhG-s7-u12" customClass="CircleView" customModule="blueCirclesGameXIB" customModuleProvider="target">
+                                <rect key="frame" x="225" y="267" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="E9Y-41-yyC" appends="YES" id="K5i-mU-cWl"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yTh-ol-ROz" customClass="CircleView" customModule="blueCirclesGameXIB" customModuleProvider="target">
+                                <rect key="frame" x="65" y="445" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BWu-0K-iwg" appends="YES" id="X58-Mb-SKt"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AOu-9g-Ajh" customClass="CircleView" customModule="blueCirclesGameXIB" customModuleProvider="target">
+                                <rect key="frame" x="225" y="445" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="225-TO-1gX" appends="YES" id="ju5-pM-H0g"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKM-P0-qXO" customClass="CircleView" customModule="blueCirclesGameXIB" customModuleProvider="target">
+                                <rect key="frame" x="157" y="611" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="osd-F6-rcE" appends="YES" id="56K-0H-BSX"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                    </view>
+                    <connections>
+                        <outlet property="circle1" destination="ZKR-Pd-bse" id="Sfz-8F-q5u"/>
+                        <outlet property="circle2" destination="UZl-eN-kCX" id="oNf-wB-xb1"/>
+                        <outlet property="circle3" destination="5Hb-VA-9sJ" id="xy2-BP-pWz"/>
+                        <outlet property="circle4" destination="GhG-s7-u12" id="NIq-tg-ImL"/>
+                        <outlet property="circle5" destination="yTh-ol-ROz" id="lMw-vj-XoF"/>
+                        <outlet property="circle6" destination="AOu-9g-Ajh" id="egZ-yX-IWI"/>
+                        <outlet property="circle7" destination="JKM-P0-qXO" id="4eS-zS-I0Q"/>
+                        <outletCollection property="circles" destination="ZKR-Pd-bse" collectionClass="NSMutableArray" id="VzJ-Dk-gTv"/>
+                        <outletCollection property="circles" destination="UZl-eN-kCX" collectionClass="NSMutableArray" id="GSF-Jd-dCm"/>
+                        <outletCollection property="circles" destination="5Hb-VA-9sJ" collectionClass="NSMutableArray" id="HSZ-X6-CRM"/>
+                        <outletCollection property="circles" destination="GhG-s7-u12" collectionClass="NSMutableArray" id="RAg-zC-I3c"/>
+                        <outletCollection property="circles" destination="yTh-ol-ROz" collectionClass="NSMutableArray" id="jgf-Ac-hXS"/>
+                        <outletCollection property="circles" destination="AOu-9g-Ajh" collectionClass="NSMutableArray" id="Jh7-QN-fkm"/>
+                        <outletCollection property="circles" destination="JKM-P0-qXO" collectionClass="NSMutableArray" id="uiM-pk-d7W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="i9f-lh-aE7">
+                    <connections>
+                        <action selector="panCircle1Action:" destination="BYZ-38-t0r" id="Pcn-lj-t96"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="0vZ-kx-YFa">
+                    <connections>
+                        <action selector="panCircle2Action:" destination="BYZ-38-t0r" id="z3e-ch-uoF"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Qmx-4D-atp">
+                    <connections>
+                        <action selector="panCircle3Action:" destination="BYZ-38-t0r" id="jPT-0L-hHf"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="E9Y-41-yyC">
+                    <connections>
+                        <action selector="panCircle4Action:" destination="BYZ-38-t0r" id="PSd-4f-xkw"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="BWu-0K-iwg">
+                    <connections>
+                        <action selector="panCircle5Action:" destination="BYZ-38-t0r" id="fGX-xl-3jY"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="225-TO-1gX">
+                    <connections>
+                        <action selector="panCircle6Action:" destination="BYZ-38-t0r" id="yKD-Za-4Dh"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="osd-F6-rcE">
+                    <connections>
+                        <action selector="panCircle7Action:" destination="BYZ-38-t0r" id="hFG-fH-vEI"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-67" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
