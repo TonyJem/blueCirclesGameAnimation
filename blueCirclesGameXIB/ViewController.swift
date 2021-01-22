@@ -11,15 +11,14 @@ class ViewController: UIViewController {
     @IBOutlet private weak var circle7: CircleView!
     @IBOutlet private var circles: [CircleView]!
     
-// MARK: - Screen parameters
+    // MARK: - Screen parameters
     private let areaDifferenceRatio: CGFloat = 10
-    private let safeArea: CGFloat = 20
     
     private var screenWitdh = CGFloat()
     private var screenHeight = CGFloat()
     private var randomMaxDiameter = CGFloat()
     private var randomMinDiameter = CGFloat()
-
+    
     var activeCircles = [CircleView]()
     
     override func viewDidLoad() {
@@ -27,38 +26,57 @@ class ViewController: UIViewController {
         
         screenWitdh = self.view.frame.width
         screenHeight = self.view.frame.height
-        
+                
         randomMaxDiameter = screenWitdh / CGFloat((circles.count)).squareRoot()
         randomMinDiameter = screenWitdh / (areaDifferenceRatio * CGFloat((circles.count))).squareRoot()
         
+        var sumOfDiameters = CGFloat()
+        
         circles.forEach { (circle) in
-            circle.diameter = CGFloat.random(in: randomMinDiameter..<randomMaxDiameter)
-            
-            let safeBorder = circle.radius + safeArea
-            
-            let randomCenterMinX = safeBorder
-            let randomCenterMaxX = screenWitdh - safeBorder
-            circle.center.x = CGFloat.random(in: randomCenterMinX..<randomCenterMaxX)
-            
-            let randomCenterMinY = safeBorder
-            let randomCenterMaxY = screenHeight - safeBorder
-            circle.center.y = CGFloat.random(in: randomCenterMinY..<randomCenterMaxY)
-            
-            guard !activeCircles.isEmpty else {
-                activeCircles.append(circle)
+            circle.diameter = CGFloat.random(in: randomMinDiameter ..< randomMaxDiameter)
+            activeCircles.append(circle)
+            sumOfDiameters += circle.diameter
+        }
+        
+        
+        let safePadding: CGFloat = 30
+
+
+        let scaleRate = (screenHeight - safePadding * 2) / sumOfDiameters
+
+        
+        var previuoseBottomY: CGFloat = 0
+        
+        activeCircles.forEach { (circle) in
+
+            let safeAreaHeight = circle.diameter * scaleRate
+
+
+            guard circle != circles.first else {
+                previuoseBottomY = safePadding
+
+                let midY = previuoseBottomY + safeAreaHeight / 2
+                let minY = midY - (safeAreaHeight - circle.diameter) / 2
+                let maxY = midY + (safeAreaHeight - circle.diameter) / 2
+
+                circle.center.y = CGFloat.random(in: minY ..< maxY)
+                circle.center.x = CGFloat.random(in: circle.radius + safePadding ..< screenWitdh - circle.radius - safePadding)
+                
+                previuoseBottomY += safeAreaHeight
+
                 return
             }
+
+
+
+            let midY = previuoseBottomY + safeAreaHeight / 2
+            let minY = midY - (safeAreaHeight - circle.diameter) / 2
+            let maxY = midY + (safeAreaHeight - circle.diameter) / 2
+
+            circle.center.y = CGFloat.random(in: minY ..< maxY)
+            circle.center.x = CGFloat.random(in: circle.radius + safePadding ..< screenWitdh - circle.radius - safePadding)
             
-            activeCircles.forEach { (activeCircle) in
-                let DeltaX = activeCircle.center.x - circle.center.x
-                let DeltaY = activeCircle.center.y - circle.center.y
-                
-                if activeCircle.radius + circle.radius < (pow(DeltaX, 2) + pow(DeltaY, 2)).squareRoot() {
-                    activeCircles.append(circle)
-                } else {
-                    activeCircles.append(circle)
-                }
-            }
+            previuoseBottomY += safeAreaHeight
         }
     }
     
