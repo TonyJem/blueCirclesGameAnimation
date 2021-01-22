@@ -24,27 +24,41 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activeCircles = circles
         
         screenWitdh = self.view.frame.width
         screenHeight = self.view.frame.height
         
-        randomMaxDiameter = screenWitdh / CGFloat((activeCircles.count)).squareRoot()
-        randomMinDiameter = screenWitdh / (areaDifferenceRatio * CGFloat((activeCircles.count))).squareRoot()
+        randomMaxDiameter = screenWitdh / CGFloat((circles.count)).squareRoot()
+        randomMinDiameter = screenWitdh / (areaDifferenceRatio * CGFloat((circles.count))).squareRoot()
         
-        activeCircles.forEach { (circle) in
+        circles.forEach { (circle) in
             circle.diameter = CGFloat.random(in: randomMinDiameter..<randomMaxDiameter)
             
             let safeBorder = circle.radius + safeArea
+            
             let randomCenterMinX = safeBorder
             let randomCenterMaxX = screenWitdh - safeBorder
-            
             circle.center.x = CGFloat.random(in: randomCenterMinX..<randomCenterMaxX)
             
             let randomCenterMinY = safeBorder
             let randomCenterMaxY = screenHeight - safeBorder
-            
             circle.center.y = CGFloat.random(in: randomCenterMinY..<randomCenterMaxY)
+            
+            guard !activeCircles.isEmpty else {
+                activeCircles.append(circle)
+                return
+            }
+            
+            activeCircles.forEach { (activeCircle) in
+                let DeltaX = activeCircle.center.x - circle.center.x
+                let DeltaY = activeCircle.center.y - circle.center.y
+                
+                if activeCircle.radius + circle.radius < (pow(DeltaX, 2) + pow(DeltaY, 2)).squareRoot() {
+                    activeCircles.append(circle)
+                } else {
+                    activeCircles.append(circle)
+                }
+            }
         }
     }
     
