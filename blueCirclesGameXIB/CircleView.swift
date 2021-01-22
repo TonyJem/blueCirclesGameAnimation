@@ -4,19 +4,21 @@ class CircleView: UIView {
     
     @IBOutlet private weak var xibCircleBody: UIView!
     
-    private var workingView: UIView!
-    private var xibName: String = "CircleView"
-    private var diameter: CGFloat = 100 {
+    var diameter: CGFloat = 100 {
         didSet {
+            self.layer.zPosition = 1/diameter
             self.frame.size.width = diameter
             self.frame.size.height = diameter
             xibCircleBody.layer.cornerRadius = diameter / 2
         }
     }
     
-    private var radius: CGFloat {
+    var radius: CGFloat {
         return diameter / 2
     }
+    
+    private var workingView: UIView!
+    private var xibName: String = "CircleView"
     
     private var area: CGFloat {
         return pow(diameter, 2) * CGFloat.pi / 4

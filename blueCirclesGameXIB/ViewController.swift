@@ -11,11 +11,41 @@ class ViewController: UIViewController {
     @IBOutlet private weak var circle7: CircleView!
     @IBOutlet private var circles: [CircleView]!
     
+// MARK: - Screen parameters
+    private let areaDifferenceRatio: CGFloat = 10
+    private let safeArea: CGFloat = 20
+    
+    private var screenWitdh = CGFloat()
+    private var screenHeight = CGFloat()
+    private var randomMaxDiameter = CGFloat()
+    private var randomMinDiameter = CGFloat()
+
     var activeCircles = [CircleView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         activeCircles = circles
+        
+        screenWitdh = self.view.frame.width
+        screenHeight = self.view.frame.height
+        
+        randomMaxDiameter = screenWitdh / CGFloat((activeCircles.count)).squareRoot()
+        randomMinDiameter = screenWitdh / (areaDifferenceRatio * CGFloat((activeCircles.count))).squareRoot()
+        
+        activeCircles.forEach { (circle) in
+            circle.diameter = CGFloat.random(in: randomMinDiameter..<randomMaxDiameter)
+            
+            let safeBorder = circle.radius + safeArea
+            let randomCenterMinX = safeBorder
+            let randomCenterMaxX = screenWitdh - safeBorder
+            
+            circle.center.x = CGFloat.random(in: randomCenterMinX..<randomCenterMaxX)
+            
+            let randomCenterMinY = safeBorder
+            let randomCenterMaxY = screenHeight - safeBorder
+            
+            circle.center.y = CGFloat.random(in: randomCenterMinY..<randomCenterMaxY)
+        }
     }
     
     @IBAction private func panCircle1Action(_ gesture: UIPanGestureRecognizer) {
