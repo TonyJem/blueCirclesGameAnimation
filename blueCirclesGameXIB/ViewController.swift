@@ -166,17 +166,9 @@ class ViewController: UIViewController {
         for (index, circle) in activeCircles.enumerated() {
             if circle == view {
                 activeCircles.remove(at: index)
-                if activeCircles.count == 1 {
-                    moveLastCircleToCenter()
-                }
                 break
             }
         }
-    }
-    
-    private func moveLastCircleToCenter() {
-        activeCircles.first?.center.x = self.view.center.x
-        activeCircles.first?.center.y = self.view.center.y
     }
     
     private func newColor(with area: CGFloat) -> UIColor {
