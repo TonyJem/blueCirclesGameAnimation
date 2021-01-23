@@ -19,6 +19,19 @@ class ViewController: UIViewController {
     private var randomMaxDiameter = CGFloat()
     private var randomMinDiameter = CGFloat()
     
+    private var areas = [CGFloat]()
+    private var minArea = CGFloat()
+    private var maxArea = CGFloat()
+    private var differenceArea = CGFloat()
+    
+    private var minGreen: CGFloat = 125
+    private var maxGreen: CGFloat = 0
+    private var differenceGreen = CGFloat()
+    
+    private var minBlue: CGFloat = 255
+    private var maxBlue: CGFloat = 85
+    private var differenceBlue = CGFloat()
+    
     var activeCircles = [CircleView]()
     
     override func viewDidLoad() {
@@ -26,54 +39,57 @@ class ViewController: UIViewController {
         
         screenWitdh = self.view.frame.width
         screenHeight = self.view.frame.height
-                
+        
         randomMaxDiameter = screenWitdh / (CGFloat((circles.count)) * 1.15).squareRoot()
         randomMinDiameter = screenWitdh / (areaDifferenceRatio * CGFloat((circles.count))).squareRoot()
         
         var sumOfDiameters = CGFloat()
+        var sumOfAreas = CGFloat()
         
         circles.forEach { (circle) in
             circle.diameter = CGFloat.random(in: randomMinDiameter ..< randomMaxDiameter)
-            circle.colorIndex = 1
             activeCircles.append(circle)
             sumOfDiameters += circle.diameter
+            
+            areas.append(circle.area)
+            sumOfAreas += circle.area
         }
+        
+        minArea = areas.min()!
+        maxArea = sumOfAreas
+        differenceArea = maxArea - minArea
+        differenceGreen = maxGreen - minGreen
+        differenceBlue = maxBlue - minBlue
+        
         
         
         let safePadding: CGFloat = 30
-
-
         let scaleRate = (screenHeight - safePadding * 2) / sumOfDiameters
-
-        
         var previuoseBottomY: CGFloat = 0
-        
         activeCircles.forEach { (circle) in
-
+            circle.setColor(to: newColor(with: circle.area))
+            
             let safeAreaHeight = circle.diameter * scaleRate
-
-
+             
             guard circle != circles.first else {
                 previuoseBottomY = safePadding
-
+                
                 let midY = previuoseBottomY + safeAreaHeight / 2
                 let minY = midY - (safeAreaHeight - circle.diameter) / 2
                 let maxY = midY + (safeAreaHeight - circle.diameter) / 2
-
+                
                 circle.center.y = CGFloat.random(in: minY ..< maxY)
                 circle.center.x = CGFloat.random(in: circle.radius + safePadding ..< screenWitdh - circle.radius - safePadding)
                 
                 previuoseBottomY += safeAreaHeight
-
+                
                 return
             }
-
-
 
             let midY = previuoseBottomY + safeAreaHeight / 2
             let minY = midY - (safeAreaHeight - circle.diameter) / 2
             let maxY = midY + (safeAreaHeight - circle.diameter) / 2
-
+            
             circle.center.y = CGFloat.random(in: minY ..< maxY)
             circle.center.x = CGFloat.random(in: circle.radius + safePadding ..< screenWitdh - circle.radius - safePadding)
             
@@ -136,6 +152,7 @@ class ViewController: UIViewController {
             
             if circle.canAbsorb(movedCircle) {
                 circle.absorb(movedCircle)
+                circle.setColor(to: newColor(with: circle.area))
                 removeFromCircles(view: movedCircle)
                 break
             }
@@ -157,5 +174,11 @@ class ViewController: UIViewController {
     private func moveLastCircleToCenter() {
         activeCircles.first?.center.x = self.view.center.x
         activeCircles.first?.center.y = self.view.center.y
+    }
+    
+    private func newColor(with area: CGFloat) -> UIColor {
+        let green = minGreen + (area - minArea) / differenceArea * differenceGreen
+        let blue = minBlue + (area - minArea) / differenceArea * differenceBlue
+        return UIColor(red: 0/255, green: green/255, blue: blue/255, alpha: 0.9)
     }
 }
