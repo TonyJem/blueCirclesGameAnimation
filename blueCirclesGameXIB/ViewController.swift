@@ -24,8 +24,8 @@ class ViewController: UIViewController {
     private var maxArea = CGFloat()
     private var differenceArea = CGFloat()
     
-    private var minGreen: CGFloat = 125
-    private var maxGreen: CGFloat = 0
+    private var minGreen: CGFloat = 100
+    private var maxGreen: CGFloat = 20
     private var differenceGreen = CGFloat()
     
     private var minBlue: CGFloat = 255
