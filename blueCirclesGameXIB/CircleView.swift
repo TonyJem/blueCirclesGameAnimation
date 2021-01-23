@@ -17,12 +17,18 @@ class CircleView: UIView {
         return diameter / 2
     }
     
-    private var workingView: UIView!
-    private var xibName: String = "CircleView"
-    
-    private var area: CGFloat {
+    var area: CGFloat {
         return pow(diameter, 2) * CGFloat.pi / 4
     }
+    
+    var color: UIColor = UIColor() {
+        didSet {
+            self.backgroundColor = color
+        }
+    }
+    
+    private var workingView: UIView!
+    private var xibName: String = "CircleView"
     
     private var absorbDistance: CGFloat {
         return radius
