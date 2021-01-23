@@ -15,6 +15,7 @@
 		3A1CF1E025B4620D005F7E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1CF1DE25B4620D005F7E31 /* LaunchScreen.storyboard */; };
 		3A1CF1E925B498DE005F7E31 /* CircleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1CF1E825B498DE005F7E31 /* CircleView.xib */; };
 		3A1CF1EC25B49903005F7E31 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1CF1EB25B49903005F7E31 /* CircleView.swift */; };
+		3A1CF24025BC8019005F7E31 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1CF23F25BC8019005F7E31 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3A1CF1E125B4620D005F7E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1CF1E825B498DE005F7E31 /* CircleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleView.xib; sourceTree = "<group>"; };
 		3A1CF1EB25B49903005F7E31 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		3A1CF23F25BC8019005F7E31 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3A1CF1D325B4620C005F7E31 /* AppDelegate.swift */,
 				3A1CF1D525B4620C005F7E31 /* SceneDelegate.swift */,
 				3A1CF1D725B4620C005F7E31 /* ViewController.swift */,
+				3A1CF23F25BC8019005F7E31 /* Colors.swift */,
 				3A1CF1E825B498DE005F7E31 /* CircleView.xib */,
 				3A1CF1EB25B49903005F7E31 /* CircleView.swift */,
 				3A1CF1D925B4620C005F7E31 /* Main.storyboard */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A1CF1EC25B49903005F7E31 /* CircleView.swift in Sources */,
+				3A1CF24025BC8019005F7E31 /* Colors.swift in Sources */,
 				3A1CF1D825B4620C005F7E31 /* ViewController.swift in Sources */,
 				3A1CF1D425B4620C005F7E31 /* AppDelegate.swift in Sources */,
 				3A1CF1D625B4620C005F7E31 /* SceneDelegate.swift in Sources */,
