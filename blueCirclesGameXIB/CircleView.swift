@@ -84,17 +84,26 @@ class CircleView: UIView {
         }
     }
     
-    func setColor(to newColor: UIColor) {
-        color = newColor
+    func setColor(to newColor: UIColor, withAnimation shouldAnimate: Bool) {
+        if shouldAnimate {
+            animateColorChange(to: newColor)
+        } else {
+            color = newColor
+        }
     }
     
     //    MARK: - Animation Methods
-    
     private func animateGrow(to newDiameter: CGFloat, with centerX: CGFloat, and centerY: CGFloat) {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
             self.diameter = newDiameter
             self.center.x = centerX
             self.center.y = centerY
+        }
+    }
+    
+    private func animateColorChange(to newColor: UIColor) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
+            self.color = newColor
         }
     }
 }

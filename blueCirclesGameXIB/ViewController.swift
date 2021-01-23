@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         var topY: CGFloat = 0
         
         activeCircles.forEach { (circle) in
-            circle.setColor(to: newColor(forCircleWith: circle.area))
+            circle.setColor(to: newColor(forCircleWith: circle.area), withAnimation: false)
 
             let minX = circle.radius + safePadding
             let maxX = screenWitdh - circle.radius - safePadding
@@ -153,7 +153,7 @@ class ViewController: UIViewController {
             
             if circle.canAbsorb(movedCircle) {
                 circle.absorb(movedCircle, withAnimation: true)
-                circle.setColor(to: newColor(forCircleWith: circle.area))
+                circle.setColor(to: newColor(forCircleWith: circle.area), withAnimation: true)
                 removeFromCircles(view: movedCircle)
                 break
             }
