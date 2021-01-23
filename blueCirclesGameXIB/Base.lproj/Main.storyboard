@@ -113,11 +113,45 @@
                                     <outletCollection property="gestureRecognizers" destination="osd-F6-rcE" appends="YES" id="56K-0H-BSX"/>
                                 </connections>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sHC-79-Mve">
+                                <rect key="frame" x="58" y="777" width="46" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O3E-ll-tvk">
+                                <rect key="frame" x="128" y="777" width="46" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FF3-ic-ZbX">
+                                <rect key="frame" x="211" y="777" width="46" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5G-aA-1Tg">
+                                <rect key="frame" x="296" y="777" width="46" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXt-Xh-9Dx">
+                                <rect key="frame" x="175" y="819" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Apply"/>
+                                <connections>
+                                    <action selector="applyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ZF-qm-WWr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="alphaTextField" destination="w5G-aA-1Tg" id="OFj-vQ-xzV"/>
+                        <outlet property="brigthnessTextField" destination="FF3-ic-ZbX" id="2jC-6o-k4T"/>
                         <outlet property="circle1" destination="ZKR-Pd-bse" id="Sfz-8F-q5u"/>
                         <outlet property="circle2" destination="UZl-eN-kCX" id="oNf-wB-xb1"/>
                         <outlet property="circle3" destination="5Hb-VA-9sJ" id="xy2-BP-pWz"/>
@@ -125,6 +159,8 @@
                         <outlet property="circle5" destination="yTh-ol-ROz" id="lMw-vj-XoF"/>
                         <outlet property="circle6" destination="AOu-9g-Ajh" id="egZ-yX-IWI"/>
                         <outlet property="circle7" destination="JKM-P0-qXO" id="4eS-zS-I0Q"/>
+                        <outlet property="hueTextField" destination="sHC-79-Mve" id="uRr-K1-T28"/>
+                        <outlet property="saturationTextField" destination="O3E-ll-tvk" id="qm5-gt-XX4"/>
                         <outletCollection property="circles" destination="ZKR-Pd-bse" collectionClass="NSMutableArray" id="VzJ-Dk-gTv"/>
                         <outletCollection property="circles" destination="UZl-eN-kCX" collectionClass="NSMutableArray" id="GSF-Jd-dCm"/>
                         <outletCollection property="circles" destination="5Hb-VA-9sJ" collectionClass="NSMutableArray" id="HSZ-X6-CRM"/>
@@ -171,7 +207,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-67" y="-2"/>
+            <point key="canvasLocation" x="-68.115942028985515" y="-2.0089285714285712"/>
         </scene>
     </scenes>
 </document>

@@ -11,6 +11,13 @@ class ViewController: UIViewController {
     @IBOutlet private weak var circle7: CircleView!
     @IBOutlet private var circles: [CircleView]!
     
+    
+    @IBOutlet weak var hueTextField: UITextField!
+    @IBOutlet weak var saturationTextField: UITextField!
+    @IBOutlet weak var brigthnessTextField: UITextField!
+    @IBOutlet weak var alphaTextField: UITextField!
+    
+    
     // MARK: - Screen parameters
     private let areaDifferenceRatio: CGFloat = 10
     
@@ -79,6 +86,35 @@ class ViewController: UIViewController {
             previuoseBottomY += safeAreaHeight
         }
     }
+    
+    var newColor = UIColor() {
+        didSet {
+            circle1.backgroundColor = newColor
+        }
+    }
+    
+    @IBAction func applyButtonTapped(_ sender: UIButton) {
+        let hue = hueTextField.text
+        let saturation = saturationTextField.text
+        let brightness = brigthnessTextField.text
+        let alpha = alphaTextField.text
+        
+        let hueInt = Int(hue!)
+        let saturationInt = Int(saturation!)
+        let brightnessInt = Int(brightness!)
+        let alphaInt = Int(alpha!)
+        
+        
+        let hueFloat: CGFloat = CGFloat(hueInt!)
+        let saturationFloat: CGFloat = CGFloat(saturationInt!)
+        let brightnessFloat: CGFloat = CGFloat(brightnessInt!)
+        let alphaFloat: CGFloat = CGFloat(alphaInt!)
+        
+        let color: UIColor = UIColor(hue: hueFloat, saturation: saturationFloat, brightness: brightnessFloat, alpha: alphaFloat)
+        
+        newColor = color
+    }
+    
     
     @IBAction private func panCircle1Action(_ gesture: UIPanGestureRecognizer) {
         move(circle1, with: gesture)
