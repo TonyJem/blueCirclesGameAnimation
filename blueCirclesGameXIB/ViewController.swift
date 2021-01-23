@@ -154,7 +154,7 @@ class ViewController: UIViewController {
     }
     
     private func moveLastCircleToCenter() {
-        activeCircles[0].center.x = self.view.center.x
-        activeCircles[0].center.y = self.view.center.y
+        activeCircles.first?.center.x = self.view.center.x
+        activeCircles.first?.center.y = self.view.center.y
     }
 }
