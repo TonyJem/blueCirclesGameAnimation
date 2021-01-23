@@ -62,7 +62,7 @@ class CircleView: UIView {
         return distanceBetweenCenters <= absorbDistance
     }
     
-    func absorb(_ otherCircle: CircleView, with color: UIColor) {
+    func absorb(_ otherCircle: CircleView) {
         let currentCenterX = self.center.x
         let currentCenterY = self.center.y
         let commonArea = otherCircle.area + area
@@ -71,6 +71,10 @@ class CircleView: UIView {
         diameter = newDiameter
         self.center.x = currentCenterX
         self.center.y = currentCenterY
-        xibCircleBody.backgroundColor = color
+        setBackGroundColor(with: .blue)
+    }
+
+    private func setBackGroundColor(with newColor: UIColor) {
+        xibCircleBody.backgroundColor = newColor
     }
 }
