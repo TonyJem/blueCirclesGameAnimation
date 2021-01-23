@@ -21,10 +21,14 @@ class CircleView: UIView {
         return pow(diameter, 2) * CGFloat.pi / 4
     }
     
+    var colorIndex = 1 {
+        didSet {
+            xibCircleBody.backgroundColor = Colors.colors[colorIndex]
+        }
+    }
+    
     private var workingView: UIView!
     private var xibName: String = "CircleView"
-    
-    private var colorIndex = 1
 
     private var absorbDistance: CGFloat {
         return radius
@@ -71,12 +75,8 @@ class CircleView: UIView {
         let newDiameter = (commonArea/CGFloat.pi).squareRoot() * 2
         otherCircle.isHidden = true
         diameter = newDiameter
+        colorIndex += otherCircle.colorIndex
         self.center.x = currentCenterX
         self.center.y = currentCenterY
-        setBackGroundColor(with: .blue)
-    }
-
-    private func setBackGroundColor(with newColor: UIColor) {
-        xibCircleBody.backgroundColor = newColor
     }
 }

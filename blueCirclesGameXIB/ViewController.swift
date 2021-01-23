@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         
         circles.forEach { (circle) in
             circle.diameter = CGFloat.random(in: randomMinDiameter ..< randomMaxDiameter)
+            circle.colorIndex = 1
             activeCircles.append(circle)
             sumOfDiameters += circle.diameter
         }
