@@ -63,10 +63,14 @@ class CircleView: UIView {
     }
     
     func absorb(_ otherCircle: CircleView) {
+        let currentCenterX = self.center.x
+        let currentCenterY = self.center.y
         let commonArea = otherCircle.area + area
         let newDiameter = (commonArea/CGFloat.pi).squareRoot() * 2
         otherCircle.isHidden = true
         diameter = newDiameter
+        self.center.x = currentCenterX
+        self.center.y = currentCenterY
         setBackGroundColor(with: .blue)
     }
 
