@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         screenWitdh = self.view.frame.width
         screenHeight = self.view.frame.height
                 
-        randomMaxDiameter = screenWitdh / CGFloat((circles.count)).squareRoot()
+        randomMaxDiameter = screenWitdh / (CGFloat((circles.count)) * 1.15).squareRoot()
         randomMinDiameter = screenWitdh / (areaDifferenceRatio * CGFloat((circles.count))).squareRoot()
         
         var sumOfDiameters = CGFloat()
