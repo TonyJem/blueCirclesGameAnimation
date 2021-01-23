@@ -10,19 +10,9 @@ class ViewController: UIViewController {
     @IBOutlet private weak var circle6: CircleView!
     @IBOutlet private weak var circle7: CircleView!
     @IBOutlet private var circles: [CircleView]!
-    
-    // MARK: - Screen parameters
+
+    private let safePadding: CGFloat = 30
     private let areaDifferenceRatio: CGFloat = 10
-    
-    private var screenWitdh = CGFloat()
-    private var screenHeight = CGFloat()
-    private var randomMaxDiameter = CGFloat()
-    private var randomMinDiameter = CGFloat()
-    
-    private var areas = [CGFloat]()
-    private var minArea = CGFloat()
-    private var maxArea = CGFloat()
-    private var differenceArea = CGFloat()
     
     private var minGreen: CGFloat = 100
     private var maxGreen: CGFloat = 20
@@ -32,14 +22,27 @@ class ViewController: UIViewController {
     private var maxBlue: CGFloat = 85
     private var differenceBlue = CGFloat()
     
-    var activeCircles = [CircleView]()
+    private var areas = [CGFloat]()
+    private var minArea = CGFloat()
+    private var maxArea = CGFloat()
+    private var differenceArea = CGFloat()
+
+    private var randomMaxDiameter = CGFloat()
+    private var randomMinDiameter = CGFloat()
+    
+    private var activeCircles = [CircleView]()
+    
+    private var screenWitdh: CGFloat {
+        return self.view.frame.width
+    }
+    
+    private var screenHeight: CGFloat {
+        return self.view.frame.height
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        screenWitdh = self.view.frame.width
-        screenHeight = self.view.frame.height
-        
+
         randomMaxDiameter = screenWitdh / (CGFloat((circles.count)) * 1.15).squareRoot()
         randomMinDiameter = screenWitdh / (areaDifferenceRatio * CGFloat((circles.count))).squareRoot()
         
@@ -55,17 +58,17 @@ class ViewController: UIViewController {
             sumOfAreas += circle.area
         }
         
-        minArea = areas.min()!
+        guard let unwrappedMinArea = areas.min() else { return }
+        minArea = unwrappedMinArea
         maxArea = sumOfAreas
         differenceArea = maxArea - minArea
         differenceGreen = maxGreen - minGreen
         differenceBlue = maxBlue - minBlue
+         
         
-        
-        
-        let safePadding: CGFloat = 30
         let scaleRate = (screenHeight - safePadding * 2) / sumOfDiameters
         var previuoseBottomY: CGFloat = 0
+        
         activeCircles.forEach { (circle) in
             circle.setColor(to: newColor(with: circle.area))
             
@@ -82,7 +85,6 @@ class ViewController: UIViewController {
                 circle.center.x = CGFloat.random(in: circle.radius + safePadding ..< screenWitdh - circle.radius - safePadding)
                 
                 previuoseBottomY += safeAreaHeight
-                
                 return
             }
 
@@ -95,6 +97,7 @@ class ViewController: UIViewController {
             
             previuoseBottomY += safeAreaHeight
         }
+        
     }
     
     @IBAction private func panCircle1Action(_ gesture: UIPanGestureRecognizer) {
