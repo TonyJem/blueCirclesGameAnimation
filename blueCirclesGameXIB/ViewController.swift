@@ -152,7 +152,7 @@ class ViewController: UIViewController {
             if circle == movedCircle { continue }
             
             if circle.canAbsorb(movedCircle) {
-                circle.absorb(movedCircle)
+                circle.absorb(movedCircle, withAnimation: true)
                 circle.setColor(to: newColor(forCircleWith: circle.area))
                 removeFromCircles(view: movedCircle)
                 break

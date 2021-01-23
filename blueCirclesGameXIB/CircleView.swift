@@ -68,19 +68,33 @@ class CircleView: UIView {
         return distanceBetweenCenters <= absorbDistance
     }
     
-    func absorb(_ otherCircle: CircleView) {
+    func absorb(_ otherCircle: CircleView, withAnimation shouldAnimate: Bool) {
         let currentCenterX = self.center.x
         let currentCenterY = self.center.y
         let commonArea = otherCircle.area + area
         let newDiameter = (commonArea/CGFloat.pi).squareRoot() * 2
         otherCircle.isHidden = true
-        diameter = newDiameter
         
-        self.center.x = currentCenterX
-        self.center.y = currentCenterY
+        if shouldAnimate {
+            animateGrow(to: newDiameter, with: currentCenterX, and: currentCenterY)
+        } else {
+            diameter = newDiameter
+            self.center.x = currentCenterX
+            self.center.y = currentCenterY
+        }
     }
     
     func setColor(to newColor: UIColor) {
         color = newColor
+    }
+    
+    //    MARK: - Animation Methods
+    
+    private func animateGrow(to newDiameter: CGFloat, with centerX: CGFloat, and centerY: CGFloat) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
+            self.diameter = newDiameter
+            self.center.x = centerX
+            self.center.y = centerY
+        }
     }
 }
