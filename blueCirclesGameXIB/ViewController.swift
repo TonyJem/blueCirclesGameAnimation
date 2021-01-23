@@ -16,12 +16,14 @@ class ViewController: UIViewController {
     private let areaDifferenceRatio: CGFloat = 10
     private let randomMaxDiameterReducer: CGFloat = 1.15
     
-    private var minGreen: CGFloat = 100
-    private var maxGreen: CGFloat = 20
+    private let circleOpacity: CGFloat = 0.9
+    
+    private let minGreen: CGFloat = 100
+    private let maxGreen: CGFloat = 20
     private var deltaGreen = CGFloat()
     
-    private var minBlue: CGFloat = 255
-    private var maxBlue: CGFloat = 85
+    private let minBlue: CGFloat = 255
+    private let maxBlue: CGFloat = 85
     private var deltaBlue = CGFloat()
     
     private var areas = [CGFloat]()
@@ -172,6 +174,6 @@ class ViewController: UIViewController {
     private func newColor(forCircleWith area: CGFloat) -> UIColor {
         let green = minGreen + (area - minArea) / differenceArea * deltaGreen
         let blue = minBlue + (area - minArea) / differenceArea * deltaBlue
-        return UIColor(red: 0/255, green: green/255, blue: blue/255, alpha: 0.9)
+        return UIColor(red: 0/255, green: green/255, blue: blue/255, alpha: circleOpacity)
     }
 }
